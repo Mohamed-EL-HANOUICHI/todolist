@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> My task's list </title>
+        <style>
+            a {text-decoration:none; color:black;}
+        </style>
+    </head>
+
+    <body>
+
+        <h2> this is your list </h2>
+
+        <ul>
+        <% lists.forEach(function(T) { %>
+            <li> <%= T %> </li>
+        <% }); %>
+        </ul>
+
+        <form  action="/todolist/add/" methode="post">
+            <label for="fname"> add new task </label>
+            <input type="text" name="fname" />
+            <input type="submit" />
+        </form>
+     </body>
+</html>        
