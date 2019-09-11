@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 
 <html>
 
@@ -17,28 +17,25 @@
 
 
     <body>
-
         <form action="/todolist">
               <input type="submit" value="home" />
         </form>
 
-        <h1>My tasks</h1>
+        <h1>Add more tasks</h1>
 
+        <form action="/todolist/add/" method="post">
 
-        <ul>
+            <p>
 
-        <% lista.forEach(function(todo) { %>
+                <label for="task">what is your task </label>
 
-            <li> <%= todo %></li>
+                <input type="text" name="task" id="task" autofocus />
 
-        <% }); %>
+                <input type="submit" />
 
-        </ul>
+            </p>
 
-        <form action="/todolist/newtask/">
-              <input type="submit" value="Go to add more task" />
         </form>
-        
 
     </body>
 

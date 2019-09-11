@@ -6,10 +6,10 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended : false });
 var app = express();
 
+
 app.use(session({secret:'todotopsecret'}))
 
-.use(bodyParser.urlencoded({ extended: true }))
-.use(bodyParser.json())
+
 
 .use(function(req, res, next){
 	if (typeof(req.session.list) == 'undefined'){
@@ -19,13 +19,18 @@ app.use(session({secret:'todotopsecret'}))
 })
 .get('/todolist',function(req,res){
 	// res.setHeader('content-tye":"text/plain');
-	res.render('form.ejs', { lists : req.session.list });
+	res.render('form.ejs', { lista : req.session.list});
+})
+.get('/todolist/newtask/',function(req,res){
+	// res.setHeader('content-tye":"text/plain');
+	res.render('newtask.ejs');
 })
 
-.post('/todolist/add/', function(req,res){
-	if (req.body.fname != ''){
 
-        req.session.list.push(req.body.fname);
+.post('/todolist/add/', urlencodedParser ,function(req,res){
+	if (req.body.task != ''){
+
+        req.session.list.push(req.body.task);
         //req.session.list.push('h');
 	}
 
