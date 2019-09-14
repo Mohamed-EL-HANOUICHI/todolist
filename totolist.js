@@ -7,9 +7,11 @@ var urlencodedParser = bodyParser.urlencoded({ extended : false });
 var app = express();
 
 
+
+
 app.use(session({secret:'todotopsecret'}))
 
-
+.use(express.static('public'))
 
 .use(function(req, res, next){
 	if (typeof(req.session.list) == 'undefined'){
@@ -27,10 +29,26 @@ app.use(session({secret:'todotopsecret'}))
 })
 
 
+
 .post('/todolist/add/', urlencodedParser ,function(req,res){
 	if (req.body.task != ''){
 
         req.session.list.push(req.body.task);
+        //req.session.list.push('h');
+       
+	}
+
+	res.redirect('/todolist');
+	
+})
+
+.post('/todolist/update/:para', urlencodedParser ,function(req,res){
+	if (req.body.task != ''){
+
+		//req.session.list.push(req.body.task);
+		req.session.list.splice(req.params.para, 1 ,req.body.task);
+
+        //req.session.list[req.params.para]=req.body.task;
         //req.session.list.push('h');
 	}
 
@@ -38,12 +56,28 @@ app.use(session({secret:'todotopsecret'}))
 	
 })
 
-.get('todolist/delete/:id', function(req,res){
+.get('/todolist/delete/:parm', function(req,res){
+
+	if (req.params.parm != '') {
+		
+		req.session.list.splice(req.params.parm, 1);
+	}
 
 	res.redirect('/todolist');
-
-   
 })
+.get('/todolist/update/:par', function(req,res){
+
+	if (req.params.parm != '') {
+		
+		res.render('update.ejs', {para:req.params.par});
+
+	}
+
+	res.redirect('/todolist');
+})
+
+
+
 .use(function(req,res){
 	res.redirect('/todolist')
 })

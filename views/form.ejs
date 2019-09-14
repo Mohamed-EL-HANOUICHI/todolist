@@ -12,32 +12,41 @@
             a {text-decoration: none; color: black;}
 
         </style>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
 
     </head>
 
 
     <body>
 
-        <form action="/todolist">
-              <input type="submit" value="home" />
-        </form>
+       
+        <div class="topnav">
+         <a class="active" href="/todolist">Home</a>
+         <a href="/todolist/newtask/">Add Task</a>
+        </div> 
 
         <h1>My tasks</h1>
 
 
         <ul>
 
-        <% lista.forEach(function(todo) { %>
-
-            <li> <%= todo %></li>
-
+        <% lista.forEach(function(todo,ind) { %>
+            <div class="container1">
+               <%= todo %>
+                <div class="buttongroup">
+                  <form  action="todolist/delete/<%= ind %>" method="get" >
+                    <input type="submit" value="delete task" /> 
+                  </form>
+                  <form  action="todolist/update/<%= ind %>" method="get" >
+                    <input type="submit" value="update task" /> 
+                  </form>
+                </div>
+            </div>
         <% }); %>
 
         </ul>
 
-        <form action="/todolist/newtask/">
-              <input type="submit" value="Go to add more task" />
-        </form>
+        
         
 
     </body>

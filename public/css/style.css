@@ -1,0 +1,59 @@
+
+.container{
+	width: 400px;
+	height: 160px;
+	border-style: double;
+	padding: 40px;
+}
+
+.container1{
+	height:auto;
+	border-style: double;
+	padding: 40px;
+}
+.buttongroup form {
+  display: inline-block;
+  position: relative;
+  top: 24px;
+
+}
+.position1{
+	position: relative;
+  top: 24px;
+	
+}
+.position2{
+  position: relative;
+  left: 100px;
+}
+.inputposition {
+
+  margin-bottom: 20px;
+  width: 70%;
+  
+  
+}
+.labelposition {
+	
+  
+ 
+    /* positions the label text beside the input */
+    
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+

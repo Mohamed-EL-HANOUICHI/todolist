@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html>
@@ -26,12 +25,12 @@
          <a href="/todolist/newtask/">Add Task</a>
         </div> 
 
-        <h1>Add more tasks</h1>
+        <h1>Update the task</h1>
 
        
         <div >
 
-        <form class ="container" action="/todolist/add/" method="post">
+        <form class ="container" action="/todolist/update/<%= para %>" method="post">
 
             <table>
             <tr>
@@ -59,7 +58,7 @@
             </tr>
             </table>
                 
-             <input type="submit" />
+             <input type="submit" value="save the change"/>
         </form>
         
         
