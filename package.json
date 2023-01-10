@@ -3,9 +3,9 @@
 	"version": "0.1.0",
 	"dependencies": {
 		"body-parser": "^1.10.2",
-		"cookie-session": "^1.1.0",
+		"cookie-session": "^1.4.0",
 		"ejs": "^2.7.1",
-		"express": "^4.11.2"
+		"express": "^4.18.2"
 	},
 	"author": "Mohamed",
 	"description": "a task manager"
